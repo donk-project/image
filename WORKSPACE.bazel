@@ -1,0 +1,57 @@
+# Donk Project
+# Copyright (c) 2021 Warriorstar Orion <orion@snowfrost.garden>
+# SPDX-License-Identifier: MIT
+workspace(name = "donk_image")
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "wso_third_party_buildfiles",
+    strip_prefix = "third_party_buildfiles-788b71b8ae4bea91548a0b30c388f4f9b5afda70",
+    urls = ["https://github.com/warriorstar-orion/third_party_buildfiles/archive/788b71b8ae4bea91548a0b30c388f4f9b5afda70.tar.gz"],
+)
+
+http_archive(
+    name = "libpng",
+    build_file = "@wso_third_party_buildfiles//:libpng.BUILD",
+    sha256 = "7f415186d38ca71c23058386d7cf5135c8beda821ee1beecdc2a7a26c0356615",
+    strip_prefix = "libpng-1.2.57",
+    urls = [
+        "https://mirror.bazel.build/github.com/glennrp/libpng/archive/v1.2.57.tar.gz",
+        "https://github.com/glennrp/libpng/archive/v1.2.57.tar.gz",
+    ],
+)
+
+http_archive(
+    name = "fmtlib",
+    build_file = "@wso_third_party_buildfiles//:fmtlib.BUILD",
+    sha256 = "decfdf9ad274070fa85f26407b816f5a4d82205ae86bac1990be658d0795ea4d",
+    strip_prefix = "fmt-7.0.3",
+    urls = ["https://github.com/fmtlib/fmt/releases/download/7.0.3/fmt-7.0.3.zip"],
+)
+
+http_archive(
+    name = "peglib",
+    build_file_content = """
+cc_library(
+    name = "peglib",
+    hdrs = ["peglib.h"],
+    visibility = ["//visibility:public"],
+)
+    """,
+    strip_prefix = "cpp-peglib-11ed83e46fb0268c22005a6b8a9f094f8ea7208c",
+    urls = [
+        "https://github.com/yhirose/cpp-peglib/archive/11ed83e46fb0268c22005a6b8a9f094f8ea7208c.tar.gz",
+    ],
+)
+
+http_archive(
+    name = "zlib",
+    build_file = "@wso_third_party_buildfiles//:zlib.BUILD",
+    sha256 = "6d4d6640ca3121620995ee255945161821218752b551a1a180f4215f7d124d45",
+    strip_prefix = "zlib-cacf7f1d4e3d44d871b605da3b647f07d718623f",
+    urls = [
+        "https://mirror.bazel.build/github.com/madler/zlib/archive/cacf7f1d4e3d44d871b605da3b647f07d718623f.tar.gz",
+        "https://github.com/madler/zlib/archive/cacf7f1d4e3d44d871b605da3b647f07d718623f.tar.gz",
+    ],
+)
