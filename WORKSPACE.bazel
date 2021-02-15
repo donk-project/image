@@ -7,8 +7,8 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "wso_third_party_buildfiles",
-    strip_prefix = "third_party_buildfiles-788b71b8ae4bea91548a0b30c388f4f9b5afda70",
-    urls = ["https://github.com/warriorstar-orion/third_party_buildfiles/archive/788b71b8ae4bea91548a0b30c388f4f9b5afda70.tar.gz"],
+    strip_prefix = "third_party_buildfiles-main",
+    urls = ["https://github.com/warriorstar-orion/third_party_buildfiles/archive/main.tar.gz"],
 )
 
 http_archive(
@@ -32,16 +32,11 @@ http_archive(
 
 http_archive(
     name = "peglib",
-    build_file_content = """
-cc_library(
-    name = "peglib",
-    hdrs = ["peglib.h"],
-    visibility = ["//visibility:public"],
-)
-    """,
-    strip_prefix = "cpp-peglib-11ed83e46fb0268c22005a6b8a9f094f8ea7208c",
+    strip_prefix = "cpp-peglib-1.3.3",
+    build_file = "@wso_third_party_buildfiles//:peglib.BUILD",
+    sha256 = "c4ecac45e52aceb28d84d4cd6474e5ed7af4a3790036281d7d16335d0142017e",
     urls = [
-        "https://github.com/yhirose/cpp-peglib/archive/11ed83e46fb0268c22005a6b8a9f094f8ea7208c.tar.gz",
+        "https://github.com/yhirose/cpp-peglib/archive/v1.3.3.zip",
     ],
 )
 
@@ -55,3 +50,4 @@ http_archive(
         "https://github.com/madler/zlib/archive/cacf7f1d4e3d44d871b605da3b647f07d718623f.tar.gz",
     ],
 )
+

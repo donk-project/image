@@ -15,4 +15,5 @@ cc_library(
         "@libpng",
     ],
     visibility = ["//visibility:public"],
+    include_prefix = "donk/image",
 )
