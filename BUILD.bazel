@@ -9,6 +9,10 @@ cc_library(
         "dmi_parser.h",
         "dmi_reader.h",
     ],
+    srcs = [
+        "dmi_parser.cc",
+        "dmi_reader.cc",
+    ],
     deps = [
         "@peglib",
         "@fmtlib",

@@ -32,11 +32,11 @@ http_archive(
 
 http_archive(
     name = "peglib",
-    strip_prefix = "cpp-peglib-1.3.3",
     build_file = "@wso_third_party_buildfiles//:peglib.BUILD",
-    sha256 = "c4ecac45e52aceb28d84d4cd6474e5ed7af4a3790036281d7d16335d0142017e",
+    strip_prefix = "cpp-peglib-0.1.13",
+    sha256 = "f83ddc4bcd3329c64de91d460af6614611cad4eae19173648145372e29ec1436",
     urls = [
-        "https://github.com/yhirose/cpp-peglib/archive/v1.3.3.zip",
+        "https://github.com/yhirose/cpp-peglib/archive/v0.1.13.zip",
     ],
 )
 
@@ -50,4 +50,3 @@ http_archive(
         "https://github.com/madler/zlib/archive/cacf7f1d4e3d44d871b605da3b647f07d718623f.tar.gz",
     ],
 )
-
